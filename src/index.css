@@ -1,0 +1,58 @@
+#root{
+    background-color: #F7F7F7;
+    direction: rtl;
+
+}
+
+.counter-section {
+  background-color: white; /* خلفية أنيقة */
+  color: black;
+}
+
+.counter-box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 40px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(255, 217, 0, 0.548);
+}
+
+.counter-number {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.counter-label {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* ✅ ريسبونسيف */
+@media (max-width: 768px) {
+  .counter-box {
+    padding: 30px 15px;
+  }
+
+  .counter-number {
+    font-size: 2.3rem;
+  }
+
+  .counter-label {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter-number {
+    font-size: 2rem;
+  }
+
+  .counter-label {
+    font-size: 1rem;
+  }
+}
