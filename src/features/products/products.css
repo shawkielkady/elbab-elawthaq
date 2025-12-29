@@ -1,0 +1,64 @@
+/*  */
+/* Common */
+.product-card, .category-card {
+  transition: transform 0.3s;
+}
+.product-card:hover, .category-card:hover {
+  transform: scale(1.03);
+}
+
+/* Slider arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.arrow.left { left: -10px; }
+.arrow.right { right: -10px; }
+.arrow:hover { background: rgba(0,0,0,0.8); }
+
+.slider-item { flex: 0 0 300px; }
+.horizontal-slider { 
+  overflow-x: hidden; 
+  scroll-behavior: smooth; 
+  padding-bottom: 10px; /* مساحة بين الكارد و scrollbar */
+}
+
+.slider-item { flex: 0 0 auto; } /* الكروت تبقى ثابتة الحجم داخل الكونتينر */
+/* Webkit browsers (Chrome, Edge, Safari) */
+.horizontal-slider::-webkit-scrollbar {
+  height: 12px; /* ارتفاع scrollbar */
+}
+
+.horizontal-slider::-webkit-scrollbar-track {
+  background: #f0f0f0; /* لون الخلفية */
+  border-radius: 10px;
+}
+
+.horizontal-slider::-webkit-scrollbar-thumb {
+  background-color: #cfa200; /* لون الشريط */
+  border-radius: 10px;
+  border: 3px solid #f0f0f0; /* يعطي padding داخلي */
+}
+
+/* Firefox */
+.horizontal-slider {
+  scrollbar-width: thin;
+  scrollbar-color: #cfa200 #f0f0f0;
+}
+@media(max-width:768px){
+  .slider-item { flex: 0 0 80%; } /* أصغر للكروت على الموبايل */
+}
+
+@media(max-width:768px){
+  .arrow { font-size: 1.2rem; padding: 8px; }
+}

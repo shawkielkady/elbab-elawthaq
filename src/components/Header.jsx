@@ -71,7 +71,9 @@ const TopNav = ({ logo = logoImage }) => {
               <Nav.Link as={NavLink} to="/who-us" style={navLinkStyle}>
                 من نحن
               </Nav.Link>
-
+                   <Nav.Link as={NavLink} to="/categories" style={navLinkStyle}>
+                 الأقسام
+              </Nav.Link>
               <Nav.Link as={NavLink} to="/contact" style={navLinkStyle}>
                 تواصل معنا
               </Nav.Link>

@@ -8,7 +8,7 @@ function App() {
   const location = useLocation();
 
   // الصفحات اللي مش عايز يظهر فيها الـ Header
-  const noHeaderRoutes = ['/start', '/login', '/splash']; 
+  const noHeaderRoutes = ['/start', '/login', '/splash','/admin/login','/admin','/admin/adminProducts']; 
 
   const hideHeader = noHeaderRoutes.includes(location.pathname);
 
