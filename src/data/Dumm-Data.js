@@ -91,6 +91,7 @@ export const products = [
     description: "فيلا واسعة مع حديقة",
     sold: false,
     img: villImg,
+    imgs:[villImg,towerImg,apartmentImg]
   },
   {
     id: 2,
@@ -100,6 +101,7 @@ export const products = [
     description: "شقة مطلة على البحر",
     sold: false,
     img: villImg,
+    imgs:[villImg,towerImg,apartmentImg]
   },
   {
     id: 3,
@@ -109,6 +111,8 @@ export const products = [
     description: "منزل هادئ في الريف",
     sold: true,
     img: villImg,
+    imgs:[villImg,towerImg]
+
   },
   {
     id: 4,
@@ -118,6 +122,7 @@ export const products = [
     description: "قصر مع مسبح وحديقة كبيرة",
     sold: false,
     img: villImg,
+    imgs:[villImg,towerImg,apartmentImg]
   },
   {
     id: 5,
@@ -127,6 +132,7 @@ export const products = [
     description: "شقة مناسبة للعائلات الصغيرة",
     sold: false,
     img: villImg,
+    imgs:[villImg,towerImg,apartmentImg]
   },
   {
     id: 6,
@@ -136,6 +142,7 @@ export const products = [
     description: "مزرعة مجهزة بالكامل",
     sold: false,
     img: villImg,
+    imgs:[villImg,towerImg,apartmentImg]
   },
   {
     id: 7,

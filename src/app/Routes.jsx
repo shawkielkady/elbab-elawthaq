@@ -10,6 +10,7 @@ import Dashboard from '../features/admin/pages/dashboard';
 import AdminProductsPage from '../features/admin/pages/adminProducts';
 import CategoriesPage from '../features/categories/pages/categoiesScreen';
 import CategoryProductsPage from '../features/products/pages/ProdutsScreen';
+import SingleProductScreen from '../features/products/pages/SingleProductScreen';
 
 
 export default function AppRoutes() {
@@ -26,7 +27,7 @@ export default function AppRoutes() {
       <Route path='/contact' element={<ContactPage />} />
       <Route path="/categories" element={<CategoriesPage />} />
       <Route path="/categories/:id" element={<CategoryProductsPage />} />
-{/* <Route path="/product/:id" element={<ProductDetailsPage />} /> */}
+<Route path="/product/:id" element={<SingleProductScreen />} />
 
        <Route path="/admin/login" element={<LoginPage />} />
          <Route path="/admin" element={<AdminLayout />}>

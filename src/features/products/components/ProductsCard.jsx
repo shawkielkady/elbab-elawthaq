@@ -12,7 +12,7 @@ export default function ProductsGrid({ products }) {
 
   return (
     <section className="py-4">
-      <h2 className="text-center mb-4">جميع المنتجات</h2>
+      <h2 className="text-center mb-4">جميع العروض</h2>
       <Row className="g-4">
         {currentProducts.map(p => (
           <Col key={p.id} md={4} sm={6}>

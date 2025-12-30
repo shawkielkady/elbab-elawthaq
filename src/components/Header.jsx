@@ -60,9 +60,9 @@ const TopNav = ({ logo = logoImage }) => {
                 <NavDropdown.Item as={NavLink} to="/farms">استراحات ومزارع</NavDropdown.Item>
               </NavDropdown> */}
 
-              {/* <Nav.Link as={NavLink} to="/demands" style={navLinkStyle}>
+               <Nav.Link as={NavLink} to="/demands" style={navLinkStyle}>
                 مطلوب لدينا
-              </Nav.Link> */}
+              </Nav.Link> 
 
               {/* <Nav.Link as={NavLink} to="/swap" style={navLinkStyle}>
                 تبديل عقار
