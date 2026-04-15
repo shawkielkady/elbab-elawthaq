@@ -9,6 +9,7 @@ import AdminLayout from '../features/admin/pages/adminlayout';
 import Dashboard from '../features/admin/pages/dashboard';
 import AdminProductsPage from '../features/admin/pages/adminProducts';
 import CategoriesPage from '../features/categories/pages/categoiesScreen';
+import SubCategoriesScreen from '../features/subCategories/pages/SubCategoriesScreen';
 import CategoryProductsPage from '../features/products/pages/ProdutsScreen';
 import SingleProductScreen from '../features/products/pages/SingleProductScreen';
 
@@ -26,7 +27,10 @@ export default function AppRoutes() {
       <Route path='/who-us' element={<WhoUs />} />
       <Route path='/contact' element={<ContactPage />} />
       <Route path="/categories" element={<CategoriesPage />} />
-      <Route path="/categories/:id" element={<CategoryProductsPage />} />
+      {/* Category → SubCategories */}
+      <Route path="/categories/:id" element={<SubCategoriesScreen />} />
+      {/* SubCategory → Products */}
+      <Route path="/sub-categories/:subId/products" element={<CategoryProductsPage />} />
 <Route path="/product/:id" element={<SingleProductScreen />} />
 
        <Route path="/admin/login" element={<LoginPage />} />
