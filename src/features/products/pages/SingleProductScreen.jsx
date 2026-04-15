@@ -1,56 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Modal } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { products } from "../../../data/Dumm-Data";
 import "../products.css";
-
-import productImg from "../../../assets/images/villa.jpg";
-import productImgg from "../../../assets/images/tower.jpg";
-
-
-/* ===== STATIC DATA ===== */
-const PRODUCTS = [
-  {
-    id: 1,
-    title: "فيلا فاخرة",
-    price: "250,000 د.ك",
-    description:
-      "فيلا فاخرة بمساحة واسعة، تصميم عصري، تشطيب سوبر لوكس، تطل على البحر مباشرة، مناسبة للسكن العائلي أو الاستثمار.",
-    images: [productImg, productImgg, productImg],
-    sold: false,
-    categoryId: 1,
-  },
-  {
-    id: 2,
-    title: "شقة راقية",
-    price: "120,000 د.ك",
-    description:
-      "شقة حديثة في موقع مميز، قريبة من جميع الخدمات، تشطيب فاخر، مناسبة للسكن الفوري.",
-    images: [productImg, productImg],
-    sold: true,
-    categoryId: 1,
-  },
-  {
-    id: 3,
-    title: "دوبلكس مميز",
-    price: "180,000 د.ك",
-    description:
-      "دوبلكس بتقسيم ذكي، إضاءة طبيعية ممتازة، تصميم عملي يناسب العائلات.",
-    images: [productImg],
-    sold: false,
-    categoryId: 1,
-  },
-];
 
 export default function SingleProductScreen() {
   const { id } = useParams();
-  const product = PRODUCTS.find((p) => p.id === Number(id));
+  const navigate = useNavigate();
+  const product = products.find((p) => p.id === Number(id));
 
-  const [activeImg, setActiveImg] = useState(product.images[0]);
+  // State
+  const [activeImg, setActiveImg] = useState("");
   const [showLightbox, setShowLightbox] = useState(false);
   const [fav, setFav] = useState(false);
 
-  const similarProducts = PRODUCTS.filter(
-    (p) => p.categoryId === product.categoryId && p.id !== product.id
+  // Initialize active image when product is found
+  useEffect(() => {
+    if (product) {
+      if (product.imgs && product.imgs.length > 0) {
+        setActiveImg(product.imgs[0]);
+      } else if (product.img) {
+        setActiveImg(product.img);
+      }
+    }
+  }, [product]);
+
+  if (!product) {
+    return (
+      <Container className="py-5 text-center">
+        <h2>عذراً، المنتج غير موجود</h2>
+        <Button className="mt-4 btn-main" onClick={() => navigate("/home")}>
+          العودة للرئيسية
+        </Button>
+      </Container>
+    );
+  }
+
+  const productImages = product.imgs || (product.img ? [product.img] : []);
+
+  const similarProducts = products.filter(
+    (p) => p.catId === product.catId && p.id !== product.id,
   );
 
   return (
@@ -65,11 +54,12 @@ export default function SingleProductScreen() {
               const rect = e.currentTarget.getBoundingClientRect();
               const x = ((e.clientX - rect.left) / rect.width) * 100;
               const y = ((e.clientY - rect.top) / rect.height) * 100;
-              e.currentTarget.querySelector("img").style.transformOrigin = `${x}% ${y}%`;
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transformOrigin = `${x}% ${y}%`;
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.querySelector("img").style.transformOrigin =
-                "center";
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transformOrigin = "center";
             }}
           >
             <img src={activeImg} alt={product.title} className="zoom-img" />
@@ -77,7 +67,7 @@ export default function SingleProductScreen() {
           </div>
 
           <div className="thumbs mt-3">
-            {product.images.map((img, i) => (
+            {productImages.map((img, i) => (
               <img
                 key={i}
                 src={img}
@@ -110,19 +100,29 @@ export default function SingleProductScreen() {
       </Row>
 
       {/* ===== SIMILAR PRODUCTS ===== */}
-      <div className="mt-5">
-        <h4 className="mb-3">منتجات مشابهة</h4>
-        <div className="similar-slider">
-          {similarProducts.map((p) => (
-            <div key={p.id} className="similar-card">
-              <img src={p.images[0]} alt={p.title} />
-              {p.sold && <span className="sold-badge small">مباع</span>}
-              <h6>{p.title}</h6>
-              <span>{p.price}</span>
-            </div>
-          ))}
+      {similarProducts.length > 0 && (
+        <div className="mt-5">
+          <h4 className="mb-3">منتجات مشابهة</h4>
+          <div className="similar-slider">
+            {similarProducts.map((p) => (
+              <div
+                key={p.id}
+                className="similar-card"
+                onClick={() => {
+                  navigate(`/product/${p.id}`);
+                  window.scrollTo(0, 0);
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                <img src={p.img} alt={p.title} />
+                {p.sold && <span className="sold-badge small">مباع</span>}
+                <h6>{p.title}</h6>
+                <span>{p.price}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ===== LIGHTBOX ===== */}
       <Modal

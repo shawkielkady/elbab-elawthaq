@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   min-height: 70vh; /* ارتفاع مرن حسب المحتوى */
-  background-image: url('../../assets/images/homeSlider.jpg');
+  background-image: url("../../assets/images/homeSlider.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,7 +55,9 @@
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .home-btn:hover {
@@ -122,16 +124,17 @@
 
 .category-card {
   background: white;
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.35s ease;
   cursor: pointer;
+  border: 1px solid #eee;
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
 .category-card .icon {

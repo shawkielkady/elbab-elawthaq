@@ -7,16 +7,24 @@ export const UserData = () => {
       <form className="text-end">
         <div className="mb-3">
           <label className="form-label">الاسم الكامل</label>
-          <input type="text" className="form-control" placeholder="أدخل الاسم" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="أدخل الاسم"
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">رقم الهاتف</label>
-          <input type="tel" className="form-control" placeholder="01xxxxxxxxx" />
+          <input
+            type="tel"
+            className="form-control"
+            placeholder="01xxxxxxxxx"
+          />
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <label className="form-label">البريد الإلكتروني</label>
           <input type="email" className="form-control" placeholder="example@mail.com" />
-        </div>
+        </div> */}
       </form>
     </div>
   );

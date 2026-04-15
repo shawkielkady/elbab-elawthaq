@@ -7,17 +7,37 @@ export const UnitData = () => {
       <form className="text-end">
         <div className="mb-3">
           <label className="form-label">العنوان</label>
-          <input type="text" className="form-control" placeholder="أدخل عنوان العقار" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="أدخل عنوان العقار"
+          />
         </div>
 
         <div className="mb-3">
           <label className="form-label">المدينة</label>
-          <input type="text" className="form-control" placeholder="أدخل المدينة" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="أدخل المدينة"
+          />
         </div>
 
         <div className="mb-3">
           <label className="form-label">المنطقة</label>
-          <input type="text" className="form-control" placeholder="أدخل المنطقة" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="أدخل المنطقة"
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">السعر</label>
+          <input
+            type="number"
+            className="form-control"
+            placeholder="أدخل السعر"
+          />
         </div>
 
         <div className="mb-3">

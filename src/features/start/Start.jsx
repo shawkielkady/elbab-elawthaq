@@ -3,11 +3,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import colors from "../../assets/styles/colors"; // تأكد إنك حافظ الملف هنا
-import logo from '../../assets/images/logo.png'
+import logo from "../../assets/images/logo.png";
 import { useNavigate } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa"
-export default function StartScreen({logoImg=logo}) {
-    const navigate = useNavigate();
+import { FaWhatsapp } from "react-icons/fa";
+export default function StartScreen({ logoImg = logo }) {
+  const navigate = useNavigate();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -33,13 +33,13 @@ export default function StartScreen({logoImg=logo}) {
           src={logoImg} // حط اللوجو بتاعك هنا
           alt="Logo"
           className="mb-4"
-          style={{ width: '50%' }}
+          style={{ width: "50%" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         />
         <motion.button
-          onClick={() => navigate('/home')}
+          onClick={() => navigate("/home")}
           className="btn fw-bold px-5 py-3 rounded-pill shadow-lg"
           style={{
             background: colors.black,
@@ -53,7 +53,7 @@ export default function StartScreen({logoImg=logo}) {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
-          الدخول إلى الرئيسية 🏠
+          الدخول إلى الرئيسية
         </motion.button>
       </motion.div>
 
@@ -72,41 +72,41 @@ export default function StartScreen({logoImg=logo}) {
           src={logoImg} // حط اللوجو بتاعك هنا
           alt="Logo"
           className="mb-4"
-          style={{ width: '50%' }}
+          style={{ width: "50%" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         />
         <motion.button
-      className="btn fw-bold px-5 py-3 rounded-pill shadow-lg d-flex align-items-center justify-content-center gap-2"
-      style={{
-        background: colors.gold,
-        color: colors.black,
-        border: `2px solid ${colors.brightGold}`,
-      }}
-      whileHover={{
-        scale: 1.08,
-        boxShadow: `0 0 25px ${colors.goldShadow}`,
-      }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 200 }}
-    >
-      <a
-        href="https://wa.me/+96560993838"
-        style={{
-          color: colors.black,
-          textDecoration: "none",
-          display: "flex",
-          alignItems: "center",
-          gap: "8px",
-        }}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaWhatsapp size={22} color={colors.black} />
-        اعرض وحدتك عن طريق الواتساب
-      </a>
-    </motion.button>
+          className="btn fw-bold px-5 py-3 rounded-pill shadow-lg d-flex align-items-center justify-content-center gap-2"
+          style={{
+            background: colors.gold,
+            color: colors.black,
+            border: `2px solid ${colors.brightGold}`,
+          }}
+          whileHover={{
+            scale: 1.08,
+            boxShadow: `0 0 25px ${colors.goldShadow}`,
+          }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 200 }}
+        >
+          <a
+            href="/demands"
+            style={{
+              color: colors.black,
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {/* <FaWhatsapp size={22} color={colors.black} /> */}
+            اعرض وحدتك لدينا
+          </a>
+        </motion.button>
       </motion.div>
     </motion.div>
   );
